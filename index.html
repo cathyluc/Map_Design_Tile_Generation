@@ -103,7 +103,7 @@
     <nav id="menu"></nav>
     <div id='map'></div>
     <div class='map-overlay' id='features'>
-        <h2>Map Design</h2>
+        <h2>Map Layers</h2>
         <div id='text-description'>
             <p>Browse through the menu.</p>
         </div>
@@ -147,6 +147,15 @@
                 'attribution': 'Third Tile'
             });
 
+            map.addSource('chekhov-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/Chekhov/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+                'attribution': 'Fourth Tile'
+            });
+
             map.addLayer({
                 'id': 'Monochrome',
                 'type': 'raster',
@@ -174,18 +183,28 @@
                 'source': 'combined-tiles'
             });
 
+            map.addLayer({
+                'id': 'Anton Chekhov',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'source': 'chekhov-tiles'
+            });
+
+
         });
 
 
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('Monochrome') || !map.getLayer('Issued Permits') || !map.getLayer('Combined')) {
+            if (!map.getLayer('Monochrome') || !map.getLayer('Issued Permits') || !map.getLayer('Combined') || !map.getLayer('Anton Chekhov')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['Monochrome', 'Issued Permits', 'Combined'];
+            const toggleableLayerIds = ['Monochrome', 'Issued Permits', 'Combined', 'Anton Chekhov'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
