@@ -78,7 +78,7 @@
         let map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/light-v10',
-            zoom: 10, // starting zoom
+            zoom: 11, // starting zoom
             center: [-122.3372324, 47.6214089] // starting center
         });
 
@@ -112,7 +112,7 @@
             });
 
             map.addLayer({
-                'id': 'mono',
+                'id': 'Monochrome',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -121,7 +121,7 @@
             });
 
             map.addLayer({
-                'id': 'permits',
+                'id': 'Issued Permits',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -130,7 +130,7 @@
             });
 
             map.addLayer({
-                'id': 'combined',
+                'id': 'Combined',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -144,12 +144,12 @@
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('mono') || !map.getLayer('permits') || !map.getLayer('combined')) {
+            if (!map.getLayer('Monochrome') || !map.getLayer('Issued Permits') || !map.getLayer('Combined')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['mono', 'permits', 'combined'];
+            const toggleableLayerIds = ['Monochrome', 'Issued Permits', 'Combined'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
