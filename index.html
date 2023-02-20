@@ -65,6 +65,36 @@
         #menu a.active:hover {
             background: #3074a4;
         }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.2);
+            margin-left: 20px;
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+        }
+
+        #features {
+            top: 0;
+            height: 100px;
+            margin-top: 20px;
+            width: 250px;
+        }
+
+        h2 {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        p {
+            margin: 10px;
+        }
     </style>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
 </head>
@@ -72,6 +102,12 @@
 <body>
     <nav id="menu"></nav>
     <div id='map'></div>
+    <div class='map-overlay' id='features'>
+        <h2>Map Design</h2>
+        <div id='text-description'>
+            <p>Browse through the menu.</p>
+        </div>
+    </div>
     <script type="text/javascript">
         mapboxgl.accessToken =
             'pk.eyJ1IjoiY2F0aHlsdWMiLCJhIjoiY2xkcHFzNGJjMTVlNDNycXV1amVnZXp1dyJ9.hkogwR_3Hx8ivsTA8wa4Rw';
