@@ -1,5 +1,5 @@
 # Map Design and Tile Generation
-This project aims to design multiple map layers and convert them as tilesets to display online as a [web map of Seattle](https://cathyluc.github.io/Map_Design_Tile_Generation/index.html). The tiles have a maximum zoom-in level of 14 and minimum of 3. 
+This project aims to design multiple map layers and convert them as tilesets to display online as a [web map of Seattle](https://cathyluc.github.io/Map_Design_Tile_Generation/index.html). The tiles have a maximum zoom-in level of 14 and minimum of 3. Mapbox resources are used including `mapbox-gl-js.css`, `mapbox-gl-js.js`, and [basemap gallery](https://www.mapbox.com/gallery/).
 
 ## First Tile: Edited Monochrome
 The first tile is a monochrome base map provided by `Mapbox` [basemap gallery](https://www.mapbox.com/gallery/). The background color and text fonts of the labels are changed for aesthetic effect.
